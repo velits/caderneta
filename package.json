@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "@firebase/testing": "^0.17.1",
+    "cucumber": "^6.0.5",
     "puppeteer": "^2.1.1"
   }
 }
