@@ -1,68 +1,38 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Caderneta (0.1.0)
 
-## Available Scripts
+> "A análise do passado somente é útil para decisões futuras"
 
-In the project directory, you can run:
+Este sistema foi desenvolvido para facilitar a tomada de decisões financeiras em ambiente comercial ou doméstico.
 
-### `npm start`
+Por simplicidade cada registro financeiro pode ter associado a si uma data, uma descrição e um valor.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Por questão de usabilidade esse sistema é desenhado para funcionar primeiramente em celulares e posteriormente em desktops e tablets.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+# Brainstorm (ainda não desenvolvido)
 
-### `npm test`
+Esses registros são gravados em formato json no próprio dispositivo do usuário para posterior recuperação e edição.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Sugestões de melhoria
+Cada registro sempre possui associados um valor ou uma descrição
+Cada registro pode ou não conter data associada
+A ordem dos registros deve ser mantida, mesmo não havendo data associada
+Quando associada uma data, a ordem dos registros deve ser consistida cronologicamente
+As datas podem ter precisão variável, podendo ser*:
+Anual: quando somente for definido o ano
+Mensal: quando somente forem definidos ano e mês
+Diária: quando forem definidos ano, mês e dia
+*(Ainda não vi a necessidade de precisão em horas, minutos, segundos, milissegundos, etc)
+Para contemplar a característica de ordenação e precisão variável é possível definir cada evento como realizado em um período correspondente à precisão. Isso traz uma complexidade que exige que períodos não sejam sobrepostos. Preciso analisar outras alternativas. (Aceito sugestões)
+Os registros financeiros podem ser definidos como fatos geradores.
+Uma compra parcelada ou um investimento, por exemplo, podem implicar diversas movimentações.
+Um fato gerador não produz outros registros, ele somente implica em diversas movimentações.
+Aos fatos geradores pode ser definido um período de abrangência, o qual pode ser utilizado para o filtro de períodos de análise
+Visto que deseja-se realizar a tomada de decisões, seria interessante a possibilidade de comparar diferentes cenários
+Valor planejado x realizado
+Data planejada x realizada
+Comparação de diferentes cenários
+Segurança e privacidade são características imprescindíveis em um sistema como esse. Portanto, pretendo criar um mecanismo de criptografia para armazenamento de todos os dados do usuário. Isso permite que os dados gravados no banco não sejam lidos nem mesmo pelo administrador do banco de dados.
+O risco nesse caso é o esquecimento da chave de criptografia utilizada isso tornará os dados ilegíveis mesmo pelo usuário dono a chave. Mas não vejo um grande problema nisso, pois seria como usuário ter perdido sua caderneta de anotações financeiras, mas de forma que ninguém poderá ler sua caderneta.
+Bibliotecas de criptografia:
+https://github.com/openpgpjs/openpgpjs
+https://gist.github.com/jo/8619441
